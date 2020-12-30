@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativoPlusStudio.AuthToken.Ficoso", "NativoPlusStudio.AuthToken.Ficoso\NativoPlusStudio.AuthToken.Ficoso.csproj", "{CDCCB465-0963-4219-865C-335C9E3847AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{80EEF9B2-76B5-4648-B9B0-48D1ECAB676A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativoPlusStudio.AuthToken.FicosoTests", "NativoPlusStudio.AuthToken.FicosoTests\NativoPlusStudio.AuthToken.FicosoTests.csproj", "{34135236-1383-4D40-A33F-DF9C264A2D89}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDCCB465-0963-4219-865C-335C9E3847AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDCCB465-0963-4219-865C-335C9E3847AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDCCB465-0963-4219-865C-335C9E3847AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDCCB465-0963-4219-865C-335C9E3847AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34135236-1383-4D40-A33F-DF9C264A2D89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34135236-1383-4D40-A33F-DF9C264A2D89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34135236-1383-4D40-A33F-DF9C264A2D89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34135236-1383-4D40-A33F-DF9C264A2D89}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{34135236-1383-4D40-A33F-DF9C264A2D89} = {80EEF9B2-76B5-4648-B9B0-48D1ECAB676A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3EF46D8A-BF3C-4D2B-9648-9FDE4999D6B0}
+	EndGlobalSection
+EndGlobal
