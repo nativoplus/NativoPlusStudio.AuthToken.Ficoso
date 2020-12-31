@@ -6,12 +6,12 @@
     <PackageProjectUrl>https://github.com/nativoplus/NativoPlusStudio.AuthToken.Ficoso</PackageProjectUrl>
     <Description>NativoPlusStudio.AuthToken.Ficoso is part of the NativoPlusStudio.AuthToken set of libraries that can be used to retrieve the auth token to be able to interface with the FICOSO APIs.</Description>
     <PackageTags>auth token nativoplus ficoso</PackageTags>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Nullable>disable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="NativoPlusStudio.AuthToken.Core" Version="1.0.4" />
+    <PackageReference Include="NativoPlusStudio.AuthToken.Core" Version="1.0.9" />
   </ItemGroup>
 
 </Project>

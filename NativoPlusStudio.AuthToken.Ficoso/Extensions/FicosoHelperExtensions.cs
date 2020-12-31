@@ -11,7 +11,7 @@ namespace NativoPlusStudio.AuthToken.Ficoso.Extensions
         {
              builder.AddPolicyHandler((provider, request) => provider
                 .GetRequiredService<IAuthTokenGenerator>()
-                .CreateTokenRefreshPolicyOnUnauthorized(
+                .CreateTokenRefreshPolicy(
                     request,
                     protectedResourceName,
                     async (generator, message, protectedResource) =>
@@ -29,7 +29,7 @@ namespace NativoPlusStudio.AuthToken.Ficoso.Extensions
         {
             builder.AddPolicyHandler((provider, request) => provider
               .GetRequiredService<IAuthTokenGenerator>()
-              .CreateTokenRefreshPolicyOnUnauthorized(
+              .CreateTokenRefreshPolicy(
                     request,
                     protectedResourceName,
                     async (generator, message, protectedResource) =>
@@ -47,7 +47,7 @@ namespace NativoPlusStudio.AuthToken.Ficoso.Extensions
         {
             builder.AddPolicyHandler((provider, request) => provider
               .GetRequiredService<IAuthTokenGenerator>()
-              .CreateTokenRefreshPolicyOnUnauthorized(
+              .CreateTokenRefreshPolicy(
                     request,
                     protectedResourceName,
                     async (generator, message, protectedResource) =>
@@ -65,7 +65,7 @@ namespace NativoPlusStudio.AuthToken.Ficoso.Extensions
         {
             builder.AddPolicyHandler((provider, request) => provider
               .GetRequiredService<IAuthTokenGenerator>()
-              .CreateTokenRefreshPolicyOnUnauthorized(
+              .CreateTokenRefreshPolicy(
                     request,
                     protectedResourceName,
                     async (generator, message, protectedResource) =>
@@ -83,7 +83,7 @@ namespace NativoPlusStudio.AuthToken.Ficoso.Extensions
         {
             builder.AddPolicyHandler((provider, request) => provider
               .GetRequiredService<IAuthTokenGenerator>()
-              .CreateTokenRefreshPolicyOnUnauthorized(
+              .CreateTokenRefreshPolicy(
                     request,
                     protectedResourceName,
                     async (generator, message, protectedResource) =>

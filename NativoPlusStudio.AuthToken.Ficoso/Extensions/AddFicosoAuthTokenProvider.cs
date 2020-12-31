@@ -50,8 +50,8 @@ namespace NativoPlusStudio.AuthToken.Ficoso.Extensions
                     durationOfBreak: TimeSpan.FromSeconds(30)
                 ));
 
-                builder.Services.AddScoped(implementationFactory => servicesBuilder.EncryptionService);
-                builder.Services.AddScoped(implementationFactory => servicesBuilder.TokenCacheService);
+                builder.Services.AddTransient(implementationFactory => servicesBuilder.EncryptionService);
+                builder.Services.AddTransient(implementationFactory => servicesBuilder.TokenCacheService);
             });
         }
     }
