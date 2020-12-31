@@ -36,5 +36,6 @@ namespace NativoPlusStudio.AuthToken.Ficoso.Configurations
             Url = url;
             IncludeEncryptedTokenInResponse = includeEncryptedTokenInResponse;
         }
+
     }
 }
