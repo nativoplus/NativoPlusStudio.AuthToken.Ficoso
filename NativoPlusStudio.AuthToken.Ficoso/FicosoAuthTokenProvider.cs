@@ -31,6 +31,7 @@ namespace NativoPlusStudio.AuthToken.Ficoso
 
         public async Task<ITokenResponse> GetTokenAsync()
         {
+            _logger.Information("FicosoAuthTokenProvider GetTokenAsync start");
             try
             {
                 if (_tokenCacheService != null)
@@ -73,7 +74,7 @@ namespace NativoPlusStudio.AuthToken.Ficoso
                     }
 
                 }
-
+                _logger.Information($"Encrypted Token: {tokenResponse.EncryptedToken}. Included EncryptedToken InResponse: {_options.IncludeEncryptedTokenInResponse}");
                 return tokenResponse;
             }
             catch (Exception ex)
@@ -100,6 +101,8 @@ namespace NativoPlusStudio.AuthToken.Ficoso
 
         private void TokenCacheUpsert(string protectedResource, ITokenResponse tokenResponse)
         {
+            _logger.Information("FicosoAuthTokenProvider TokenCacheUpsert start");
+
             string tokenTobeStored;
             if (tokenResponse.EncryptedToken != null)
             {
@@ -127,6 +130,8 @@ namespace NativoPlusStudio.AuthToken.Ficoso
 
         private ITokenResponse GetTokenFromCache(IAuthTokenDetails cachedToken)
         {
+            _logger.Information("FicosoAuthTokenProvider GetTokenFromCache start");
+
             var decryptedToken = _symmetricEncryption != null ? _symmetricEncryption.Decrypt(cachedToken.Token) : cachedToken.Token;
             return new TokenResponse()
             {
