@@ -44,7 +44,7 @@ namespace NativoPlusStudio.AuthToken.Ficoso
                     }
                 }
 
-                var (Response, Status, Code, Message) = await 
+                var (Response, Status, Code, Message) = await
                     (await _client.PostFormAsync(BuildFormUrlEncodedContent(), _options.AccessTokenEndpoint))
                     .TransformHttpResponseToType<FicosoTokenResponse>()
                     ;
@@ -53,8 +53,8 @@ namespace NativoPlusStudio.AuthToken.Ficoso
                 {
                     Token = Response.AccessToken,
                     TokenType = Response.TokenType,
-                    EncryptedToken = _options.IncludeEncryptedTokenInResponse && _symmetricEncryption != null 
-                        ? _symmetricEncryption.Encrypt(Response.AccessToken) 
+                    EncryptedToken = _options.IncludeEncryptedTokenInResponse && _symmetricEncryption != null
+                        ? _symmetricEncryption.Encrypt(Response.AccessToken)
                         : null,
                     ExpiryDateUtc = Response.AccessToken
                         .BuildJwtSecurityToken()
@@ -74,7 +74,7 @@ namespace NativoPlusStudio.AuthToken.Ficoso
                     }
 
                 }
-                _logger.Information($"Encrypted Token: {tokenResponse.EncryptedToken}. Included EncryptedToken InResponse: {_options.IncludeEncryptedTokenInResponse}");
+                LogEncryptedToken(tokenResponse.EncryptedToken);
                 return tokenResponse;
             }
             catch (Exception ex)
@@ -84,6 +84,11 @@ namespace NativoPlusStudio.AuthToken.Ficoso
                 {
                 };
             }
+        }
+
+        private void LogEncryptedToken(string encryptedToken)
+        {
+            _logger.Information($"Encrypted Token: {encryptedToken}. Included EncryptedToken InResponse: {_options.IncludeEncryptedTokenInResponse}");
         }
 
         private List<KeyValuePair<string, string>> BuildFormUrlEncodedContent()

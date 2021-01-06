@@ -10,18 +10,18 @@ namespace NativoPlusStudio.AuthToken.Ficoso.Extensions
 {
     public static class FicosoServicesExtension
     {
-        public static void AddFicosoAuthTokenProvider(this IAuthTokenProviderBuilder builder,
+        public static IServiceCollection AddFicosoAuthTokenProvider(this IServiceCollection services,
             Action<FicosoAuthTokenOptions, AuthTokenServicesBuilder> actions
             )
         {
             var ficosoOptions = new FicosoAuthTokenOptions();
-            var servicesBuilder = new AuthTokenServicesBuilder() { Services = builder.Services };
+            var servicesBuilder = new AuthTokenServicesBuilder() { Services = services };
 
             actions.Invoke(ficosoOptions, servicesBuilder);
 
-            builder.AddTokenProviderHelper(ficosoOptions.ProtectedResource, () => 
+            services.AddTokenProviderHelper(ficosoOptions.ProtectedResource, () => 
             {
-                builder.Services.Configure<FicosoAuthTokenOptions>(f =>
+                services.Configure<FicosoAuthTokenOptions>(f =>
                 {
                     f.Scope = ficosoOptions.Scope;
                     f.ClientSecret = ficosoOptions.ClientSecret;
@@ -34,7 +34,7 @@ namespace NativoPlusStudio.AuthToken.Ficoso.Extensions
                     f.IncludeEncryptedTokenInResponse = ficosoOptions.IncludeEncryptedTokenInResponse;
                 });
 
-                builder.Services
+                services
                 .AddHttpClient<IAuthTokenProvider, FicosoAuthTokenProvider>(client =>
                 {
                     client.BaseAddress = new Uri(ficosoOptions.Url);
@@ -50,9 +50,11 @@ namespace NativoPlusStudio.AuthToken.Ficoso.Extensions
                     durationOfBreak: TimeSpan.FromSeconds(30)
                 ));
 
-                builder.Services.AddTransient(implementationFactory => servicesBuilder.EncryptionService);
-                builder.Services.AddTransient(implementationFactory => servicesBuilder.TokenCacheService);
+                services.AddTransient(implementationFactory => servicesBuilder.EncryptionService);
+                services.AddTransient(implementationFactory => servicesBuilder.TokenCacheService);
             });
+
+            return services;
         }
     }
 }
